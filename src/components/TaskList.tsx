@@ -1,4 +1,5 @@
 import { Task } from "../models/task_model";
+import TaskCard from "./TaskCard";
 
 interface Props {
   tasks: Task[];
@@ -9,7 +10,10 @@ const TaskList: React.FC<Props> = ({tasks, setTasks}) => {
   return(
     <div className="task_list">
       {tasks.map((task)=>(
-        <li>{task.text}</li>
+        <TaskCard
+          task={task}
+          key={task.id}
+        />
       ))}
     </div>
   );
