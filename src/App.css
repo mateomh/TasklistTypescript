@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 90vh;
 }
 
 .heading {
@@ -8,15 +13,25 @@
 }
 
 .task_input_form {
-
+  width: 80vw;
+  padding: 5vh 2vw;
 }
 
 .task_input {
-
+  border-radius: 50px 0px 0px 50px;
+  padding: 1vh 2vw;
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
 }
 
 .task_button {
-
+  border-radius: 0px 50px 50px 0px;
+  padding: 1vh 2vw;
+  border: none;
+  font-weight: bolder;
+  background-color: royalblue;
+  color: whitesmoke;
 }
 
 .task_list {
@@ -24,7 +39,14 @@
 }
 
 .task_card {
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:blanchedalmond;
+  width: 50vw;
+  padding: 2vh 3vw;
+  border-radius: 10px;
+  margin-bottom: 2vh;
 }
 
 .taskcard_text {
