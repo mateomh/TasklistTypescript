@@ -12,6 +12,8 @@ const TaskList: React.FC<Props> = ({tasks, setTasks}) => {
       {tasks.map((task)=>(
         <TaskCard
           task={task}
+          tasks={tasks}
+          setTasks={setTasks}
           key={task.id}
         />
       ))}
