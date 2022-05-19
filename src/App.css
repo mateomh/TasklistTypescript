@@ -62,6 +62,25 @@
 
 }
 
+.container {
+  display: flex;
+  width: 95vw;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.todo {
+  height: 70vh;
+  background-color: coral;
+  padding: 10px;
+}
+
+.complete {
+  background-color: darkseagreen;
+  height: 70vh;
+  padding: 10px;
+}
+
 .task_card {
   display: flex;
   justify-content: space-around;
@@ -70,8 +89,13 @@
   width: 30vw;
   padding: 2vh 3vw;
   border-radius: 10px;
-  margin-bottom: 2vh;
-  margin: 0 2vw 2vh 2vw;
+  margin: 1vh 2vw 2vh 2vw;
+  transition: 0.2s;
+}
+
+.task_card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px black;
 }
 
 .taskcard_text {
@@ -87,7 +111,7 @@
 
 @media (max-width: 800px) {
   .task_card {
-    width: 100%;
+    width: 90%;
   }
 
   .task_list {
@@ -100,5 +124,13 @@
 
   .task_input {
     width: 70%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+  .todo, .complete {
+    width: 95%;
+    height: fit-content;
   }
 }
