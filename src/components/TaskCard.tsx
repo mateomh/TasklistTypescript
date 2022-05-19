@@ -2,11 +2,12 @@ import { Task } from "../models/task_model";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import React, { useEffect, useRef, useState } from "react";
+import { Actions } from "../models/actions_model";
 
 interface Props {
   task: Task;
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  setTasks: React.Dispatch<Actions>;
 };
 
 const TaskCard: React.FC<Props> = ({task, tasks, setTasks}) => {
@@ -16,16 +17,16 @@ const TaskCard: React.FC<Props> = ({task, tasks, setTasks}) => {
 
 
   const handleDone = (id: number) => {
-    setTasks(tasks.map((task) => task.id? {...task,isDone: !task.isDone} : task));
+    setTasks({type:"done", payload: id});
   }
 
   const handleDelete = (id: number) => {
-    setTasks(tasks.filter((task) => task.id!== id));
+    setTasks({type:"remove", payload: id});
   }
 
   const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
-    setTasks(tasks.map((task) => task.id === id ? {...task,text: editedText} : task));
+    setTasks({type: "edit", payload: {id, editedText}});
     setEdit(false);
   }
 
