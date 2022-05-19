@@ -4,17 +4,23 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
+  width: 100vw;
 }
 
 .heading {
   text-align: center;
   text-transform: uppercase;
+  font-size: 40px;
+  z-index: 1;
 }
 
 .task_input_form {
   width: 80vw;
   padding: 5vh 2vw;
+  /* display: flex;
+  position: relative;
+  align-items: center; */
 }
 
 .task_input {
@@ -23,6 +29,11 @@
   outline: none;
   border: none;
   background-color: whitesmoke;
+  transition: 0.2s;
+}
+
+.task_input:focus {
+  background-color: aliceblue;
 }
 
 .task_button {
@@ -32,9 +43,22 @@
   font-weight: bolder;
   background-color: royalblue;
   color: whitesmoke;
+  transition: 0.2s all;
+}
+
+.task_button:hover {
+  background-color: darkgoldenrod;
+}
+
+.task_button:active {
+  transform: scale(0.8);
 }
 
 .task_list {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  width: 90vw;
 
 }
 
@@ -43,16 +67,38 @@
   justify-content: space-around;
   align-items: center;
   background-color:blanchedalmond;
-  width: 50vw;
+  width: 30vw;
   padding: 2vh 3vw;
   border-radius: 10px;
   margin-bottom: 2vh;
+  margin: 0 2vw 2vh 2vw;
 }
 
 .taskcard_text {
-
+  flex: 1;
+  border: none;
+  text-align: left;
 }
 
 .icon {
+  margin: 0 10px;
+  cursor: pointer;
+}
 
+@media (max-width: 800px) {
+  .task_card {
+    width: 100%;
+  }
+
+  .task_list {
+    width: 95%;
+  }
+
+  .task_input_form {
+    width: 95%;
+  }
+
+  .task_input {
+    width: 70%;
+  }
 }
