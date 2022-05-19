@@ -7,7 +7,6 @@ import { Actions } from "./models/actions_model";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
-  // const [tasks, setTasks] = useState<Task[]>([]);
 
   const taskReducer = (state: Task[], action: Actions) => {
     switch (action.type) {
@@ -35,7 +34,6 @@ const App: React.FC = () => {
   const handleAddTask = (e: React.FormEvent) => {
     e.preventDefault();
     if(todo) {
-      // setTasks([...tasks, {id: Math.random(), text: todo, isDone: false}]);
       dispatch({type: "add", payload: todo});
       setTodo("");
     }
