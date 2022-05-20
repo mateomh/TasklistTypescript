@@ -3,31 +3,12 @@ import './App.css';
 import InputField from './components/InputField';
 import TaskList from './components/TaskList';
 import { Task } from './models/task_model';
-import { Actions } from "./models/actions_model";
+import { taskReducer } from './reducers/reducers';
+import { DragDropContext } from "react-beautiful-dnd";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
-
-  const taskReducer = (state: Task[], action: Actions) => {
-    switch (action.type) {
-      case "add":
-        return [ 
-          ...state,
-          {id: Math.random(), text: action.payload, isDone: false} 
-        ]
-      case "remove":
-        return state.filter((task) => task.id!== action.payload);
-      case "done":
-        return state.map((task) => 
-          task.id === action.payload ? {...task,isDone: !task.isDone} : task)
-      case "edit":
-        return state.map((task) => 
-          task.id === action.payload.id ? {...task,text: action.payload.editedText} : task)
-      default:
-        return state;
-    }
-  }
-
+  const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
   const [tasks, dispatch] = useReducer(taskReducer, []);
 
 
@@ -40,18 +21,24 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="App">
-      <h1 className='heading'>Taskify</h1>
-      <InputField
-        todo={todo}
-        setTodo={setTodo}
-        addTask={handleAddTask}
-      />
-      <TaskList
-        tasks={tasks}
-        setTasks={dispatch}
-      />
-    </div>
+    <DragDropContext
+      onDragEnd={() =>{}}
+    >
+      <div className="App">
+        <h1 className='heading'>Taskify</h1>
+        <InputField
+          todo={todo}
+          setTodo={setTodo}
+          addTask={handleAddTask}
+        />
+        <TaskList
+          tasks={tasks}
+          setTasks={dispatch}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
+      </div>
+    </DragDropContext>
   );
 }
 
