@@ -111,6 +111,14 @@
   cursor: pointer;
 }
 
+.dragactive {
+  background-color: orangered;
+}
+
+.dragremove {
+  background-color: lime;
+}
+
 @media (max-width: 800px) {
   .task_card {
     width: 90%;
