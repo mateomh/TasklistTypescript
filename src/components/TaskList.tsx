@@ -39,6 +39,7 @@ const TaskList: React.FC<Props> = ({
                 key={task.id}
               />
             ))}
+            {provided.placeholder}
           </div>
         )}
       </Droppable>
@@ -54,16 +55,17 @@ const TaskList: React.FC<Props> = ({
             <span className="complete_header">
               Completed Tasks
             </span>
-            {tasks.map((task, index)=>(
+            {completedTasks.map((task, index)=>(
               <TaskCard
                 index={index}
                 task={task}
-                tasks={tasks}
+                tasks={completedTasks}
                 setTasks={setTasks}
                 setCompletedTasks={setCompletedTasks}
                 key={task.id}
               />
             ))}
+            {provided.placeholder}
           </div>
         )}
       </Droppable>
